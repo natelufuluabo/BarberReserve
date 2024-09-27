@@ -7,7 +7,7 @@ function App() {
   return (
     <div className='rootContainer'>
       <div className='topBar'>
-        <h1 className='logo'>Reserv<strong>ease</strong></h1>
+        <h1 className='logo'>Reserv <strong>Ease</strong></h1>
       </div>
       {/* <Login /> */}
       <Signup />

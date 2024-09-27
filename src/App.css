@@ -24,8 +24,15 @@ body {
 .logo {
   font-size: 2.5rem;
   font-weight: bold;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 0.2rem;
+  padding-left: 0.3rem;
 }
 
 .logo > strong {
   color: #4CAF50;
+  background-color: #fff;
+  padding: 0rem;
+  padding-right: 0.3rem;
 }
