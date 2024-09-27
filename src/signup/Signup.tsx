@@ -12,7 +12,7 @@ function Signup() {
             <input type="number" placeholder="téléphone"/>
             <input type="password" placeholder="mot de passe"/>
             <button>Créer mon compte</button>
-            <p className="message">Vous avez déjà un compte? <a href="#">Connectez-vous</a></p>
+            <p className="message">Vous avez déjà un compte? <a href="/login">Connectez-vous</a></p>
         </form>
       </div>
 </div>

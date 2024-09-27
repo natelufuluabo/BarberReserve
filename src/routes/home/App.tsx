@@ -1,6 +1,6 @@
 import './App.css'
-import Login from './login/Login'
-import Signup from './signup/Signup'
+import Login from '../../login/Login'
+import Signup from '../../signup/Signup'
 
 function App() {
 
@@ -9,8 +9,8 @@ function App() {
       <div className='topBar'>
         <h1 className='logo'>Reserv <strong>Ease</strong></h1>
       </div>
-      {/* <Login /> */}
-      <Signup />
+      <Login /> 
+      {/* <Signup /> */}
     </div>
   )
 }
