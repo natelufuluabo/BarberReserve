@@ -1,0 +1,23 @@
+.topBar {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+  
+.logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 0.2rem;
+    padding-left: 0.3rem;
+}
+  
+.logo > strong {
+    color: #4CAF50;
+    background-color: #fff;
+    padding: 0rem;
+    padding-right: 0.3rem;
+}

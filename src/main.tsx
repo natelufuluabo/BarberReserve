@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './routes/home/App.tsx'
-import Login from './login/Login.tsx';
-import Signup from './signup/Signup.tsx';
+import Home from './routes/home/Home.tsx'
+import Login from './routes/login/Login.tsx';
+import Signup from './routes/signup/Signup.tsx';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -11,7 +11,7 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
   },
   {
     path: "/login",
