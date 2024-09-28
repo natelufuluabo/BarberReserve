@@ -1,5 +1,6 @@
 import './Signup.css'
 import { useState } from 'react'
+import { createUser } from '../../services/registration'
 import TopBar from '../../topbar/TopBar'
 
 function Signup() {
@@ -45,10 +46,19 @@ function Signup() {
     return 200;
   }
 
-  function handleSubmit(event:any) {
+  async function handleSubmit(event:any) {
     event.preventDefault();
     if (handleFormValidation() == 404) return;
-    console.log(formData);
+    const userCreationResult = await createUser(formData);
+    if (userCreationResult === 404) {
+      setErrorPresence('Erreur de serveur. Réessayez');
+      return;
+    }
+    if (userCreationResult === 405) {
+      setErrorPresence('Ce courriel est déjà utilisé par un autre compte');
+      return;
+    }
+    console.log('success')
     setErrorPresence('');
     setFormData({
       nomComplet: '', courriel: '', telephone: '', motDePasse: ''
@@ -63,21 +73,21 @@ function Signup() {
           <h1>Créer un compte</h1>
           {errorPresent && <p className='error'>{errorPresent}</p>}
           <form className="signup-form" onSubmit={handleSubmit}>
-            <input name='nomComplet' type="text" placeholder="nom complet*" onChange={event => handleFormChange(event)}/>
-            <input name='courriel' type="email" placeholder="courriel*" onChange={event => handleFormChange(event)}/>
-            <input name='telephone' type="number" placeholder="téléphone*" 
+            <input value={formData.nomComplet} name='nomComplet' type="text" placeholder="nom complet*" onChange={event => handleFormChange(event)}/>
+            <input value={formData.courriel} name='courriel' type="email" placeholder="courriel*" onChange={event => handleFormChange(event)}/>
+            <input value={formData.telephone} name='telephone' type="number" placeholder="téléphone*" 
               onChange={event => {
                   if (Number.isNaN(event.target.value)) event.preventDefault();
                   handleFormChange(event);
                 }
               }
             />
-            <input name='motDePasse' type="password" placeholder="mot de passe*" onChange={event => handleFormChange(event)}/>
+            <input value={formData.motDePasse} name='motDePasse' type="password" placeholder="mot de passe*" onChange={event => handleFormChange(event)}/>
             <button type='submit'>Créer mon compte</button>
             <p className="message">Vous avez déjà un compte? <a href="/login">Connectez-vous</a></p>
           </form>
         </div>
-    </div>
+      </div>
     </>
   )
 }
